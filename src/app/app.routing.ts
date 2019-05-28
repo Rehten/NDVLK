@@ -5,6 +5,11 @@ const routes: Routes = [
   {
     path: 'polygon',
     loadChildren: './modules/polygon/polygon.module#PolygonModule'
+  },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
   }
 ];
 

@@ -13,6 +13,7 @@ export class PolygonReadService implements Read<PolygonPartEntity> {
   constructor(private polygonMapReduceService: PolygonMapReduceService) {
   }
 
+  // по подобной схеме (map-reduce) можно данные, добытые несколькими запросами упаковать в один контейнер
   read(): Observable<PolygonPartEntity> {
     const data1: BackendJSON = {total: 3, data: ['1']};
     const data2: BackendJSON = {total: 3, data: ['2']};
