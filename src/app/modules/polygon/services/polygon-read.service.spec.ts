@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PolygonMapReduceService } from './map-reduce.service';
+import { PolygonReadService } from './polygon-read.service';
 
-describe('MapReduceService', () => {
+describe('PolygonReadService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PolygonMapReduceService = TestBed.get(PolygonMapReduceService);
+    const service: PolygonReadService = TestBed.get(PolygonReadService);
     expect(service).toBeTruthy();
   });
 });

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PolygonComponent } from './components/polygon/polygon.component';
 import {PolygonRoutingModule} from './polygon.routing';
 import {PolygonMapReduceService} from './services/map-reduce.service';
+import {PolygonReadService} from './services/polygon-read.service';
 
 @NgModule({
   declarations: [PolygonComponent],
@@ -11,7 +12,7 @@ import {PolygonMapReduceService} from './services/map-reduce.service';
     CommonModule,
     PolygonRoutingModule
   ],
-  providers: [PolygonMapReduceService],
+  providers: [PolygonMapReduceService, PolygonReadService],
   bootstrap: [PolygonComponent]
 })
 export class PolygonModule { }
