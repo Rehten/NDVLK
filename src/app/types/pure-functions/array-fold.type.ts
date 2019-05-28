@@ -1,1 +1,1 @@
-export type ArrayFold<T> = (data: Array<T>) => T;
+export type Fold<T> = (prev: T, cur: T) => T;
