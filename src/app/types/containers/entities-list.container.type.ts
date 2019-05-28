@@ -7,5 +7,4 @@ import {EntityContainer} from './entity.container.type';
 export interface EntitiesListContainer<R> extends EntityContainer<Array<R>> {
   entity: Array<R>;
   total: number;
-  concat(container: EntitiesListContainer<R>): EntitiesListContainer<R>;
 }
