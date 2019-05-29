@@ -10,7 +10,7 @@ import { ErrorComponent } from './components/error/error.component';
   imports: [
     CommonModule
   ],
-  entryComponents: [TextComponent],
+  entryComponents: [TextComponent, ErrorComponent],
   exports: [ContainerComponent, TextComponent]
 })
 export class SharedModule { }
