@@ -21,8 +21,5 @@ export class ErrorComponent implements OnInit, VirtualComponent {
   constructor() { }
 
   ngOnInit() {}
-  resolve(metadata: ErrorMetadata): void {
-    this.metadata = metadata;
-  }
 
 }

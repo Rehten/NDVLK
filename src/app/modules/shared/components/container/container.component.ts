@@ -40,14 +40,14 @@ export class ContainerComponent implements OnInit, AfterViewInit, OnChanges, Vir
   ngAfterViewInit(): void {
     if (this.metadata) {
       setTimeout(() => {
-        this.resolve(this.metadata);
+        this.resolve();
       });
     }
   }
 
   ngOnChanges(): void {
     if (this.metadata) {
-      this.resolve(this.metadata);
+      this.resolve();
     }
   }
 
@@ -55,11 +55,11 @@ export class ContainerComponent implements OnInit, AfterViewInit, OnChanges, Vir
     const factory: ComponentFactory<VirtualComponent> = this.componentFactoryResolver.resolveComponentFactory(componentType);
 
     this.$containerHost.viewContainerRef.clear();
-    this.$containerHost.viewContainerRef.createComponent(factory);
+    // создание кастомного компонента на основании метаданных плюс вставка метаданных внутрь только что созданного компонента
+    this.$containerHost.viewContainerRef.createComponent(factory).instance.metadata = this.metadata.inner.metadata;
   }
 
-  resolve(metadata: ContainerMetadata): void {
-    this.metadata = metadata;
+  resolve(): void {
     this.loadComponent(this.metadata.inner.componentClass);
   }
 
