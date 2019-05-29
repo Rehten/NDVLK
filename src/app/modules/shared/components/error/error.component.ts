@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {VirtualComponent} from '../../../../types/components/virtual.component';
 import {ErrorMetadata} from './error.metadata';
-import {ErrorComplexFactory} from './error.complex-factory';
+import {VirtualComplexFactory} from '../../../../types/components/virtual.complex-factory';
+import {ErrorComplex} from './error.complex';
 
 @Component({
   selector: 'ndv-error',
@@ -9,7 +10,11 @@ import {ErrorComplexFactory} from './error.complex-factory';
   styleUrls: ['./error.component.scss']
 })
 export class ErrorComponent implements OnInit, VirtualComponent {
-  static complexFactory: ErrorComplexFactory = new ErrorComplexFactory();
+  static complexFactory: VirtualComplexFactory = new class implements VirtualComplexFactory {
+    create(metaData: ErrorMetadata): ErrorComplex {
+      return new ErrorComplex(ErrorComponent);
+    }
+  };
 
   metadata: ErrorMetadata = new ErrorMetadata();
 

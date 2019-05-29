@@ -5,7 +5,7 @@ import {ComponentClass} from '../../../../types/components/component-class.compo
 
 export class ErrorComplex implements VirtualComplex {
   constructor(
-    public componentClass: ComponentClass<ErrorComponent> = ErrorComponent,
+    public componentClass: ComponentClass<ErrorComponent>,
     public metadata: ErrorMetadata = new ErrorMetadata()
   ) {}
 }
