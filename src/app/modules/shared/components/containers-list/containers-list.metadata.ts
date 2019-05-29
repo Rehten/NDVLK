@@ -4,7 +4,8 @@ import {VirtualContainersListMetadata} from '../../../../types/components/virtua
 export class ContainersListMetadata implements VirtualContainersListMetadata {
   constructor(
     public inner: Array<VirtualComplex> = [],
-    public $pointersPrev: Array<string> = [],
-    public $pointersNext: Array<string> = []
+    public $pointer: string = null,
+    public $prev: string = null,
+    public $next: Array<string> = []
   ) {}
 }

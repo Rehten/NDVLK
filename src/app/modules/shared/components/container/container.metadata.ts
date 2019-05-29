@@ -6,8 +6,9 @@ import {ErrorComponent} from '../error/error.component';
 export class ContainerMetadata implements VirtualContainerMetadata {
   constructor(
     public inner: VirtualComplex = new ErrorComplex(ErrorComponent),
-    public $pointersPrev: Array<string> = [],
-    public $pointersNext: Array<string> = []
+    public $pointer: string = null,
+    public $prev: string = null,
+    public $next: string = null
   ) {
   }
 }
