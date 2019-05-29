@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {AppState} from './app.state';
 
 @Component({
   selector: 'ndv-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'NDVLK';
+  constructor(private store: Store<AppState>) {
+    store.select(state => {
+      console.log(state);
+      return state.metaMap;
+    }).subscribe(data => {
+      console.log(data);
+    });
+  }
 }

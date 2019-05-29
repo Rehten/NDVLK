@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app.routing';
 import {StoreModule} from '@ngrx/store';
+import {$metaMapReducer} from './redux/reducers/meta-map.reducer';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import {StoreModule} from '@ngrx/store';
   imports: [
     BrowserModule,
     RouterModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({metaMap: $metaMapReducer}),
     AppRoutingModule
   ],
   providers: [],

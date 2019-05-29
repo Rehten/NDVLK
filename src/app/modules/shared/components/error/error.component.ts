@@ -11,8 +11,8 @@ import {ErrorComplex} from './error.complex';
 })
 export class ErrorComponent implements OnInit, VirtualComponent {
   static complexFactory: VirtualComplexFactory = new class implements VirtualComplexFactory {
-    create(metaData: ErrorMetadata): ErrorComplex {
-      return new ErrorComplex(ErrorComponent);
+    create(metaData: ErrorMetadata = null): ErrorComplex {
+      return new ErrorComplex(ErrorComponent, metaData);
     }
   };
 
