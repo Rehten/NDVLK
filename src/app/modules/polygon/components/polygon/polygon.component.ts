@@ -19,5 +19,4 @@ export class PolygonComponent implements OnInit {
       console.log(entity);
     });
   }
-
 }
