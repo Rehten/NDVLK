@@ -19,7 +19,7 @@ import {ContainerComplex} from './container.complex';
   styleUrls: ['./container.component.scss']
 })
 export class ContainerComponent implements OnInit, AfterViewInit, OnChanges, VirtualComponent {
-  static complexFactory: VirtualComplexFactory = new class implements VirtualComplexFactory {
+  public static complexFactory: VirtualComplexFactory = new class implements VirtualComplexFactory {
     create(metaData: ContainerMetadata): ContainerComplex {
       return new ContainerComplex(ContainerComponent, metaData);
     }
