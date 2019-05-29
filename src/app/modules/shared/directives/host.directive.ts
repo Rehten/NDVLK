@@ -6,6 +6,6 @@ import {Directive, ViewContainerRef} from '@angular/core';
 })
 export class HostDirective {
 
-  constructor(public viewContainerRef: ViewContainerRef) { }
+  constructor(public viewContainerRef: ViewContainerRef) {}
 
 }

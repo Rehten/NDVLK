@@ -12,6 +12,7 @@
             "element",
             "ndv",
             "kebab-case"
-        ]
+        ],
+      "no-empty-interface": false
     }
 }
