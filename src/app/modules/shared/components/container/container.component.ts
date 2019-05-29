@@ -12,6 +12,7 @@ import {VirtualComponent} from '../../../../types/components/virtual.component';
 import {ContainerMetadata} from './container.metadata';
 import {VirtualComplexFactory} from '../../../../types/components/virtual.complex-factory';
 import {ContainerComplex} from './container.complex';
+import {BehaviorSubject} from 'rxjs';
 
 @Component({
   selector: 'ndv-container',
