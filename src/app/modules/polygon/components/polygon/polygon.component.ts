@@ -30,6 +30,11 @@ import {ContainersListComplex} from '../../../shared/components/containers-list/
 import {ContainersListComponent} from '../../../shared/components/containers-list/containers-list.component';
 import {VirtualComplex} from '../../../../types/components/virtual.complex';
 import {AppPostAction} from '../../../../redux/actions/update.action';
+import {VirtualPointerComplex} from '../../../../types/components/virtual-pointer.complex';
+import {FormInputComponent} from '../../../shared/components/form-input/form-input.component';
+import {HeaderComplex} from '../../../shared/components/header/header.complex';
+import {HeaderComponent} from '../../../shared/components/header/header.component';
+import {FormInputComplex} from '../../../shared/components/form-input/form-input.complex';
 
 @Component({
   selector: 'ndv-polygon',
@@ -70,41 +75,30 @@ export class PolygonComponent implements OnInit {
   ngOnInit() {
   }
 
-  // generateMeta(): VirtualComplex {
-  //   switch (this.$create) {
-  //     case 'ndv-text':
-  //     case 'ndv-error':
-  //     case 'ndv-form-input':
-  //     case 'ndv-containers-list':
-  //     case 'ndv-header':
-  //     case 'ndv-header-button':
-  //     case 'ndv-header-input':
-  //     default:
-  //       break;
-  //   }
-  // }
+  generateMeta(): VirtualPointerComplex {
+    switch (this.$create) {
+      case 'ndv-text':
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new TextComplex(TextComponent, new TextMetadata(this.$text))));
+      case 'ndv-error':
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new ErrorComplex(ErrorComponent, new ErrorMetadata(this.$text))));
+      case 'ndv-form-input':
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new FormInputComplex(FormInputComponent, new FormInputMetadata(this.$text))));
+      case 'ndv-containers-list':
+        return new ContainersListComplex(ContainersListComponent, new ContainersListMetadata([], this.$pointer, [], this.$prev));
+      case 'ndv-header':
+        return new HeaderComplex(HeaderComponent, new HeaderMetadata([], this.$pointer, [], this.$prev));
+      case 'ndv-header-button':
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new HeaderButtonComplex(HeaderButtonComponent, new HeaderButtonMetadata(this.$text, this.$color))));
+      case 'ndv-header-input':
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new HeaderInputComplex(HeaderInputComponent, new HeaderInputMetadata(this.$text, this.$color))));
+      default:
+        break;
+    }
+  }
 
   submit() {
     this.store.select(state => state.factories).subscribe((map: Map<string, VirtualComplexFactory>) => {
-      // this.store.dispatch(new AppPostAction('root', new ContainerComplex(ContainerComponent, new ContainerMetadata(
-      //   new TextComplex(TextComponent, new TextMetadata('321321')), this.uuidService.generate()
-      // ))));
-      this.store.dispatch(new AppPostAction('root', new ContainersListComplex(
-        ContainersListComponent,
-        new ContainersListMetadata([], 'qwerty')
-      )));
-      setInterval(() => {
-        this.store.dispatch(new AppPostAction('qwerty', new ContainerComplex(
-          ContainerComponent,
-          new ContainerMetadata(
-            new TextComplex(
-              TextComponent,
-              new TextMetadata('utyrtyu')
-            ),
-            '123'
-          )
-        )));
-      }, 1000);
+      this.store.dispatch(new AppPostAction(this.$prev, this.generateMeta()));
     });
   }
 }
