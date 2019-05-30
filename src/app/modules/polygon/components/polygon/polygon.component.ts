@@ -23,6 +23,13 @@ import {HeaderMetadata} from '../../../shared/components/header/header.metadata'
 import {HeaderButtonMetadata} from '../../../shared/components/header/header-button/header-button.metadata';
 import {HeaderButtonComplex} from '../../../shared/components/header/header-button/header-button.complex';
 import {HeaderButtonComponent} from '../../../shared/components/header/header-button/header-button.component';
+import {HeaderInputMetadata} from '../../../shared/components/header/header-input/header-input.metadata';
+import {HeaderInputComponent} from '../../../shared/components/header/header-input/header-input.component';
+import {HeaderInputComplex} from '../../../shared/components/header/header-input/header-input.complex';
+import {ContainersListComplex} from '../../../shared/components/containers-list/containers-list.complex';
+import {ContainersListComponent} from '../../../shared/components/containers-list/containers-list.component';
+import {VirtualComplex} from '../../../../types/components/virtual.complex';
+import {AppPostAction} from '../../../../redux/actions/update.action';
 
 @Component({
   selector: 'ndv-polygon',
@@ -30,26 +37,29 @@ import {HeaderButtonComponent} from '../../../shared/components/header/header-bu
   styleUrls: ['./polygon.component.scss']
 })
 export class PolygonComponent implements OnInit {
+  private $pointersList: Array<string> = [];
   private $create: string = '';
   private $text: string = '';
+  private $color: string = '';
+  private $pointer: string = '';
+  private $prev: string = '';
   private $componentsList: Array<string>;
 
-  private $containerMetaData: Array<VirtualPointerMetadata> = [new ContainerMetadata()];
-  private $containerMetaDataCustom: ContainerMetadata = new ContainerMetadata(
-    new ErrorComplex(ErrorComponent, new ErrorMetadata('Кастомная ошибка'))
-  );
+  private $containerMetaData: Array<VirtualPointerMetadata> = [];
 
   constructor(
     private polygonReadService: PolygonReadService,
     private store: Store<AppState>,
     private layoutService: LayoutService,
     private uuidService: UuidService) {
+    store.dispatch(new AppAddAction(new ContainerComplex(ContainerComponent, new ContainerMetadata(new TextComplex(TextComponent, new TextMetadata('1')), 'root'))));
     store.select(state => state.factories).subscribe((map) => {
       this.$componentsList = [...map].map<string>(data => data[0]);
     });
     store.select(state => state.metaMap).subscribe((map) => {
+      this.$pointersList = [...map].map(state => state[0]);
       this.$containerMetaData = [...map].filter((state) => !state[1].metadata.$prev).map((state) => state[1].metadata);
-      console.log(map);
+      console.log(map, this.$containerMetaData);
     });
   }
 
@@ -58,52 +68,26 @@ export class PolygonComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.polygonReadService.read().subscribe((entity: PolygonPartEntity): void => {
-      console.log(entity);
-    });
   }
 
-  generateMeta($create: string, $text: string, ptr?: string, ptr2?: string): any {
-    switch ($create) {
-      case 'ndv-text':
-        return new TextMetadata($text);
-      case 'ndv-error':
-        return new ErrorMetadata($text);
-      case 'ndv-form-input':
-        return new FormInputMetadata($text);
-      case 'ndv-containers-list':
-        return new ContainersListMetadata(
-          [
-            new ContainerComplex(
-              ContainerComponent,
-              new ContainerMetadata(new TextComplex(TextComponent, new TextMetadata('$text')), ptr, null, ptr2)
-            )
-          ],
-          ptr);
-      case 'ndv-header':
-        return new HeaderMetadata(
-          [
-            new ContainerComplex(
-              ContainerComponent,
-              new ContainerMetadata(new HeaderButtonComplex(HeaderButtonComponent, new HeaderButtonMetadata('Кнопка!', 'danger')), ptr, null, ptr2)
-            )
-          ],
-          ptr);
-      case 'ndv-header-button':
-        return new HeaderButtonMetadata('Кнопка!', 'danger');
-      default:
-        break;
-    }
-  }
+  // generateMeta(): VirtualComplex {
+  //   switch (this.$create) {
+  //     case 'ndv-text':
+  //     case 'ndv-error':
+  //     case 'ndv-form-input':
+  //     case 'ndv-containers-list':
+  //     case 'ndv-header':
+  //     case 'ndv-header-button':
+  //     case 'ndv-header-input':
+  //     default:
+  //       break;
+  //   }
+  // }
 
   submit() {
-    const childPointer1 = this.uuidService.generate();
-    const childPointer2 = this.uuidService.generate();
-
     this.store.select(state => state.factories).subscribe((map: Map<string, VirtualComplexFactory>) => {
-      this.store.dispatch(new AppAddAction(new ContainerComplex(ContainerComponent, new ContainerMetadata(
-        map.get(this.$create).create(this.generateMeta(this.$create, this.$text, childPointer2, childPointer1)),
-        childPointer1
+      this.store.dispatch(new AppPostAction('root', new ContainerComplex(ContainerComponent, new ContainerMetadata(
+        new TextComplex(TextComponent, new TextMetadata('321321')), this.uuidService.generate()
       ))));
     });
   }

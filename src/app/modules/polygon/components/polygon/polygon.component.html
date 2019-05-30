@@ -1,10 +1,16 @@
 <div>
   <h1>God panel</h1>
   <p>create</p>
+  <select name="">
+    <option *ngFor="let item of $pointersList" value="{{item}}">{{item}}</option>
+  </select>
   <select (change)="changeComponentType($event)" [value]="$create" name="" id="">
     <option *ngFor="let item of $componentsList" value="{{item}}">{{item}}</option>
   </select>
-  <input (keyup)="$text = $event.target.value" type="text">
+  <input (keyup)="$text = $event.target.value" type="text" placeholder="$text">
+  <input (keyup)="$color = $event.target.value" type="text" placeholder="$color">
+  <input (keyup)="$pointer = $event.target.value" type="text" placeholder="$pointer">
+  <input (keyup)="$prev = $event.target.value" type="text" placeholder="$prev">
   <button (click)="submit()">submit</button>
 </div>
 <ndv-container *ngFor="let container of $containerMetaData" [metadata]="container"></ndv-container>

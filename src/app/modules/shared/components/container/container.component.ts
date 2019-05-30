@@ -27,7 +27,7 @@ import {VirtualComplex} from '../../../../types/components/virtual.complex';
   templateUrl: './container.component.html',
   styleUrls: ['./container.component.scss']
 })
-export class ContainerComponent implements OnInit, AfterViewInit, VirtualComponent {
+export class ContainerComponent implements OnInit, AfterViewInit, OnChanges, VirtualComponent {
   public static identifier: string = 'ndv-container';
   public static complexFactory: VirtualPointerComplexFactory = new class implements VirtualPointerComplexFactory {
     create(metaData: ContainerMetadata): ContainerComplex {
@@ -47,13 +47,20 @@ export class ContainerComponent implements OnInit, AfterViewInit, VirtualCompone
   ) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ngAfterViewInit(): void {
     if (this.metadata && this.metadata.inner) {
       setTimeout(() => {
-       this.redraw();
+        this.redraw();
       });
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.metadata && this.metadata.inner) {
+      this.redraw();
     }
   }
 
