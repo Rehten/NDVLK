@@ -7,19 +7,4 @@
   <input (keyup)="$text = $event.target.value" type="text">
   <button (click)="submit()">submit</button>
 </div>
-
-<div>
-
-  <!-- Begin page content -->
-  <main role="main" class="container">
-    <ndv-container *ngFor="let container of $containerMetaData" [metadata]="container"></ndv-container>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <span class="text-muted">Это футер!!!</span>
-    </div>
-  </footer>
-
-
-</div>
+<ndv-container *ngFor="let container of $containerMetaData" [metadata]="container"></ndv-container>
