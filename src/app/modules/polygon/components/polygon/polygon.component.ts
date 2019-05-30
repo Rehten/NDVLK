@@ -86,9 +86,25 @@ export class PolygonComponent implements OnInit {
 
   submit() {
     this.store.select(state => state.factories).subscribe((map: Map<string, VirtualComplexFactory>) => {
-      this.store.dispatch(new AppPostAction('root', new ContainerComplex(ContainerComponent, new ContainerMetadata(
-        new TextComplex(TextComponent, new TextMetadata('321321')), this.uuidService.generate()
-      ))));
+      // this.store.dispatch(new AppPostAction('root', new ContainerComplex(ContainerComponent, new ContainerMetadata(
+      //   new TextComplex(TextComponent, new TextMetadata('321321')), this.uuidService.generate()
+      // ))));
+      this.store.dispatch(new AppPostAction('root', new ContainersListComplex(
+        ContainersListComponent,
+        new ContainersListMetadata([], 'qwerty')
+      )));
+      setInterval(() => {
+        this.store.dispatch(new AppPostAction('qwerty', new ContainerComplex(
+          ContainerComponent,
+          new ContainerMetadata(
+            new TextComplex(
+              TextComponent,
+              new TextMetadata('utyrtyu')
+            ),
+            '123'
+          )
+        )));
+      }, 1000);
     });
   }
 }
