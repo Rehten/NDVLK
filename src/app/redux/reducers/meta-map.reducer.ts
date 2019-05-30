@@ -4,8 +4,6 @@ import {Reducer} from '../../types/flux/reducers/abstract.reducer';
 import {AppActionsEnum} from '../actions/actions.enum';
 import {VirtualPointerComplex} from '../../types/components/virtual-pointer.complex';
 import {AppAddAction} from '../actions/add.action';
-import {VirtualPointerMetadata} from '../../types/components/virtual-pointer.metadata';
-import {AppUpdateAction} from '../actions/update.action';
 
 type MemoryMap = Map<string, VirtualPointerComplex>;
 type MetaPart = [string, VirtualPointerComplex];

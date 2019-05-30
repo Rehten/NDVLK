@@ -10,15 +10,44 @@ import {UuidService} from './services/uuid.service';
 import {StoreModule} from '@ngrx/store';
 import {$metaMapReducer} from '../../redux/reducers/meta-map.reducer';
 import {$factoriesReducer} from '../../redux/reducers/factories.reducer';
+import { HeaderComponent } from './components/header/header.component';
+import { HeaderTextComponent } from './components/header/header-text/header-text.component';
+import { HeaderInputComponent } from './components/header/header-input/header-input.component';
+import { HeaderButtonComponent } from './components/header/header-button/header-button.component';
 
 @NgModule({
-  declarations: [ContainerComponent, HostDirective, TextComponent, ErrorComponent, FormInputComponent, ContainersListComponent],
+  declarations: [
+    ContainerComponent,
+    HostDirective,
+    TextComponent,
+    ErrorComponent,
+    FormInputComponent,
+    ContainersListComponent,
+    HeaderComponent,
+    HeaderTextComponent,
+    HeaderInputComponent,
+    HeaderButtonComponent
+  ],
   imports: [
     CommonModule,
     StoreModule.forFeature('metaMap',  $metaMapReducer)
   ],
   providers: [UuidService],
-  entryComponents: [ContainerComponent, TextComponent, ErrorComponent, FormInputComponent, ContainersListComponent],
-  exports: [ContainerComponent, TextComponent, ErrorComponent, FormInputComponent, ContainersListComponent]
+  entryComponents: [
+    ContainerComponent,
+    TextComponent,
+    ErrorComponent,
+    FormInputComponent,
+    ContainersListComponent,
+    HeaderComponent
+  ],
+  exports: [
+    ContainerComponent,
+    TextComponent,
+    ErrorComponent,
+    FormInputComponent,
+    ContainersListComponent,
+    HeaderComponent
+  ]
 })
 export class SharedModule { }

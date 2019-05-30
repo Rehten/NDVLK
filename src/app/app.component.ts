@@ -11,6 +11,7 @@ import {ContainersListComponent} from './modules/shared/components/containers-li
 import {VirtualComponent} from './types/components/virtual.component';
 import {AppAddFactoriesAction} from './redux/actions/add-factories.action';
 import {VirtualComplexFactory} from './types/components/virtual.complex-factory';
+import {HeaderComponent} from './modules/shared/components/header/header.component';
 
 @Component({
   selector: 'ndv-root',
@@ -19,7 +20,12 @@ import {VirtualComplexFactory} from './types/components/virtual.complex-factory'
 })
 export class AppComponent {
   private $components: ComponentClass<VirtualComponent>[] = [
-    ContainerComponent, TextComponent, ErrorComponent, FormInputComponent, ContainersListComponent
+    ContainerComponent,
+    TextComponent,
+    ErrorComponent,
+    FormInputComponent,
+    ContainersListComponent,
+    HeaderComponent
   ];
 
   constructor(
