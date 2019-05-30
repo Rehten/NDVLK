@@ -47,7 +47,10 @@ import { HeaderButtonComponent } from './components/header/header-button/header-
     ErrorComponent,
     FormInputComponent,
     ContainersListComponent,
-    HeaderComponent
+    HeaderComponent,
+    HeaderTextComponent,
+    HeaderInputComponent,
+    HeaderButtonComponent
   ]
 })
 export class SharedModule { }

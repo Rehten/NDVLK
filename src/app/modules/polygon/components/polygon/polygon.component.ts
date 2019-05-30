@@ -20,6 +20,9 @@ import {VirtualComplexFactory} from '../../../../types/components/virtual.comple
 import {FormInputMetadata} from '../../../shared/components/form-input/form-input.metadata';
 import {ContainersListMetadata} from '../../../shared/components/containers-list/containers-list.metadata';
 import {HeaderMetadata} from '../../../shared/components/header/header.metadata';
+import {HeaderButtonMetadata} from '../../../shared/components/header/header-button/header-button.metadata';
+import {HeaderButtonComplex} from '../../../shared/components/header/header-button/header-button.complex';
+import {HeaderButtonComponent} from '../../../shared/components/header/header-button/header-button.component';
 
 @Component({
   selector: 'ndv-polygon',
@@ -82,10 +85,12 @@ export class PolygonComponent implements OnInit {
           [
             new ContainerComplex(
               ContainerComponent,
-              new ContainerMetadata(new TextComplex(TextComponent, new TextMetadata('$text')), ptr, null, ptr2)
+              new ContainerMetadata(new HeaderButtonComplex(HeaderButtonComponent, new HeaderButtonMetadata('Кнопка!', 'danger')), ptr, null, ptr2)
             )
           ],
           ptr);
+      case 'ndv-header-button':
+        return new HeaderButtonMetadata('Кнопка!', 'danger');
       default:
         break;
     }

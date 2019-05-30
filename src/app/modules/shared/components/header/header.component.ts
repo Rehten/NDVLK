@@ -6,13 +6,14 @@ import {ContainersListComplex} from '../containers-list/containers-list.complex'
 import {ContainersListComponent} from '../containers-list/containers-list.component';
 import {HeaderComplex} from './header.complex';
 import {HeaderMetadata} from './header.metadata';
+import {VirtualComponent} from '../../../../types/components/virtual.component';
 
 @Component({
   selector: 'ndv-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, VirtualComponent {
   public static identifier: string = 'ndv-header';
   public static complexFactory: VirtualPointerComplexFactory = new class implements VirtualPointerComplexFactory {
     create(metaData: HeaderMetadata): HeaderComplex {

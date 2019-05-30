@@ -12,6 +12,9 @@ import {VirtualComponent} from './types/components/virtual.component';
 import {AppAddFactoriesAction} from './redux/actions/add-factories.action';
 import {VirtualComplexFactory} from './types/components/virtual.complex-factory';
 import {HeaderComponent} from './modules/shared/components/header/header.component';
+import {HeaderTextComponent} from './modules/shared/components/header/header-text/header-text.component';
+import {HeaderInputComponent} from './modules/shared/components/header/header-input/header-input.component';
+import {HeaderButtonComponent} from './modules/shared/components/header/header-button/header-button.component';
 
 @Component({
   selector: 'ndv-root',
@@ -25,7 +28,8 @@ export class AppComponent {
     ErrorComponent,
     FormInputComponent,
     ContainersListComponent,
-    HeaderComponent
+    HeaderComponent,
+    HeaderButtonComponent
   ];
 
   constructor(

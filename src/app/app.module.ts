@@ -14,6 +14,8 @@ import {FormInputComponent} from './modules/shared/components/form-input/form-in
 import {ContainersListComponent} from './modules/shared/components/containers-list/containers-list.component';
 import {UuidService} from './modules/shared/services/uuid.service';
 import {$factoriesReducer} from './redux/reducers/factories.reducer';
+import {HeaderComponent} from './modules/shared/components/header/header.component';
+import {HeaderButtonComponent} from './modules/shared/components/header/header-button/header-button.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import {$factoriesReducer} from './redux/reducers/factories.reducer';
   ],
   providers: [UuidService],
   bootstrap: [AppComponent],
-  entryComponents: [ContainerComponent, TextComponent, ErrorComponent, FormInputComponent, ContainersListComponent]
+  entryComponents: [ContainerComponent, TextComponent, ErrorComponent, FormInputComponent, ContainersListComponent, HeaderComponent,
+  HeaderButtonComponent]
 })
 export class AppModule { }
