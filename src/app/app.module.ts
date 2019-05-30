@@ -16,6 +16,8 @@ import {UuidService} from './modules/shared/services/uuid.service';
 import {$factoriesReducer} from './redux/reducers/factories.reducer';
 import {HeaderComponent} from './modules/shared/components/header/header.component';
 import {HeaderButtonComponent} from './modules/shared/components/header/header-button/header-button.component';
+import {HeaderInputComponent} from './modules/shared/components/header/header-input/header-input.component';
+import {HeaderTextComponent} from './modules/shared/components/header/header-text/header-text.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,6 @@ import {HeaderButtonComponent} from './modules/shared/components/header/header-b
   providers: [UuidService],
   bootstrap: [AppComponent],
   entryComponents: [ContainerComponent, TextComponent, ErrorComponent, FormInputComponent, ContainersListComponent, HeaderComponent,
-  HeaderButtonComponent]
+  HeaderButtonComponent, HeaderInputComponent, HeaderTextComponent]
 })
 export class AppModule { }

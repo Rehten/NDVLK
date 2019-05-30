@@ -29,7 +29,8 @@ export class AppComponent {
     FormInputComponent,
     ContainersListComponent,
     HeaderComponent,
-    HeaderButtonComponent
+    HeaderButtonComponent,
+    HeaderInputComponent
   ];
 
   constructor(
