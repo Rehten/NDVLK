@@ -50,7 +50,7 @@ export class ContainerComponent implements OnInit, AfterViewInit, VirtualCompone
   ngOnInit() {}
 
   ngAfterViewInit(): void {
-    if (this.metadata) {
+    if (this.metadata && this.metadata.inner) {
       setTimeout(() => {
        this.redraw();
       });

@@ -22,6 +22,7 @@ import {VirtualPointerMetadata} from '../../../../types/components/virtual-point
 import {VirtualComplexFactory} from '../../../../types/components/virtual.complex-factory';
 import {VirtualMetadata} from '../../../../types/components/virtual.metadata';
 import {FormInputMetadata} from '../../../shared/components/form-input/form-input.metadata';
+import {ContainersListMetadata} from '../../../shared/components/containers-list/containers-list.metadata';
 
 @Component({
   selector: 'ndv-polygon',
@@ -46,6 +47,7 @@ export class PolygonComponent implements OnInit {
     });
     store.select(state => state.metaMap).subscribe((map) => {
       this.$containerMetaData = [...map].filter((state) => !state[1].metadata.$prev).map((state) => state[1].metadata);
+      console.log(map);
     });
   }
 
@@ -59,27 +61,32 @@ export class PolygonComponent implements OnInit {
     });
   }
 
+  generateMeta($create: string, $text: string, ptr?: string, ptr2?: string): any {
+    switch ($create) {
+      case 'ndv-text':
+        return new TextMetadata($text);
+      case 'ndv-error':
+        return new ErrorMetadata($text);
+      case 'ndv-form-input':
+        return new FormInputMetadata($text);
+      case 'ndv-containers-list':
+        return new ContainersListMetadata(
+          [
+            new ContainerComplex(ContainerComponent, new ContainerMetadata(new TextComplex(TextComponent, new TextMetadata('$text')), ptr, null, ptr2)),
+          ],
+          ptr);
+      default:
+        break;
+    }
+  }
+
   submit() {
     const childPointer1 = this.uuidService.generate();
+    const childPointer2 = this.uuidService.generate();
 
     this.store.select(state => state.factories).subscribe((map: Map<string, VirtualComplexFactory>) => {
-      let metaData: VirtualMetadata;
-      switch (this.$create) {
-        case 'ndv-text':
-          metaData = new TextMetadata(this.$text);
-          break;
-        case 'ndv-error':
-          metaData = new ErrorMetadata(this.$text);
-          break;
-        case 'ndv-form-input':
-          metaData = new FormInputMetadata(this.$text);
-          break;
-        default:
-          break;
-      }
-
       this.store.dispatch(new AppAddAction(new ContainerComplex(ContainerComponent, new ContainerMetadata(
-        map.get(this.$create).create(metaData),
+        map.get(this.$create).create(this.generateMeta(this.$create, this.$text, childPointer2, childPointer1)),
         childPointer1
       ))));
     });
