@@ -10,6 +10,7 @@ import {ErrorComplex} from './error.complex';
   styleUrls: ['./error.component.scss']
 })
 export class ErrorComponent implements OnInit, VirtualComponent {
+  public static identifier: string = 'ndv-error';
   static complexFactory: VirtualComplexFactory = new class implements VirtualComplexFactory {
     create(metaData: ErrorMetadata = null): ErrorComplex {
       return new ErrorComplex(ErrorComponent, metaData);

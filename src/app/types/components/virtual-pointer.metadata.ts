@@ -6,4 +6,5 @@ import {VirtualMetadata} from './virtual.metadata';
 export interface VirtualPointerMetadata extends VirtualMetadata {
   $pointer: string;
   $prev: string;
+  $next: string | Array<string>;
 }

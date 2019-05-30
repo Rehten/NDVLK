@@ -6,5 +6,6 @@ import {VirtualMetadata} from './virtual.metadata';
 
 // требует наличие статического свойства-фабрики в каждом классе компонента для рендеринга
 export interface ComponentClass<T extends VirtualComponent> extends Type<T> {
+  identifier: string;
   complexFactory: VirtualComplexFactory;
 }

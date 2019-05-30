@@ -8,6 +8,8 @@ import {PolygonReadService} from './services/polygon-read.service';
 import { PolygonRowComponent } from './components/polygon-row/polygon-row.component';
 import {SharedModule} from '../shared/shared.module';
 import {ContainerComponent} from '../shared/components/container/container.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {UuidService} from '../shared/services/uuid.service';
 
 @NgModule({
   declarations: [PolygonComponent, PolygonRowComponent],
@@ -16,7 +18,7 @@ import {ContainerComponent} from '../shared/components/container/container.compo
     PolygonRoutingModule,
     SharedModule
   ],
-  providers: [PolygonMapReduceService, PolygonReadService],
+  providers: [PolygonMapReduceService, PolygonReadService, UuidService],
   bootstrap: [PolygonComponent],
   entryComponents: [ContainerComponent]
 })

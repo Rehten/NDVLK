@@ -14,6 +14,7 @@ import {TextComplex} from './text.complex';
   styleUrls: ['./text.component.scss']
 })
 export class TextComponent implements OnInit, VirtualComponent {
+  public static identifier: string = 'ndv-text';
   static complexFactory: VirtualComplexFactory = new class implements VirtualComplexFactory {
     create(metaData: TextMetadata): TextComplex {
       return new TextComplex(TextComponent, metaData);
