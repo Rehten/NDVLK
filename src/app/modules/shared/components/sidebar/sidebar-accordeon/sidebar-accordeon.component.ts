@@ -20,6 +20,8 @@ export class SidebarAccordeonComponent implements OnInit, VirtualComponent {
 
   @Input()
   metadata: SidebarAccordeonMetadata = new SidebarAccordeonMetadata();
+
+  public isFolded: boolean = true;
   constructor() { }
 
   ngOnInit() {}

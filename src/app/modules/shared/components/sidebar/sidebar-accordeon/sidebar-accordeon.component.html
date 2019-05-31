@@ -1,4 +1,6 @@
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action list-group-item-dark">{{metadata.text}}</a>
-  <ndv-container *ngFor="let $complex of metadata.inner" [metadata]="$complex.metadata"></ndv-container>
+  <a (click)="isFolded = !isFolded" class="list-group-item list-group-item-action list-group-item-dark">{{metadata.text}}</a>
+  <div [class.folded]="isFolded" class="list-group">
+    <ndv-container *ngFor="let $complex of metadata.inner" [metadata]="$complex.metadata"></ndv-container>
+  </div>
 </div>
