@@ -1,9 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ContainerComplex} from '../container/container.complex';
 import {VirtualPointerComplexFactory} from '../../../../types/components/virtual-pointer.complex-factory';
 import {ContainersListMetadata} from '../containers-list/containers-list.metadata';
-import {ContainersListComplex} from '../containers-list/containers-list.complex';
-import {ContainersListComponent} from '../containers-list/containers-list.component';
 import {HeaderComplex} from './header.complex';
 import {HeaderMetadata} from './header.metadata';
 import {VirtualComponent} from '../../../../types/components/virtual.component';

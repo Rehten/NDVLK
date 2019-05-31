@@ -15,6 +15,9 @@ import {HeaderComponent} from './modules/shared/components/header/header.compone
 import {HeaderTextComponent} from './modules/shared/components/header/header-text/header-text.component';
 import {HeaderInputComponent} from './modules/shared/components/header/header-input/header-input.component';
 import {HeaderButtonComponent} from './modules/shared/components/header/header-button/header-button.component';
+import {SidebarComponent} from './modules/shared/components/sidebar/sidebar.component';
+import {SidebarAccordeonComponent} from './modules/shared/components/sidebar/sidebar-accordeon/sidebar-accordeon.component';
+import {SidebarAccordeonItemComponent} from './modules/shared/components/sidebar/sidebar-accordeon/sidebar-accordeon-item/sidebar-accordeon-item.component';
 
 @Component({
   selector: 'ndv-root',
@@ -30,7 +33,10 @@ export class AppComponent {
     ContainersListComponent,
     HeaderComponent,
     HeaderButtonComponent,
-    HeaderInputComponent
+    HeaderInputComponent,
+    SidebarComponent,
+    SidebarAccordeonComponent,
+    SidebarAccordeonItemComponent
   ];
 
   constructor(

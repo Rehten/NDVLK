@@ -1,7 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app.routing';
 import {StoreModule} from '@ngrx/store';
@@ -18,6 +18,9 @@ import {HeaderComponent} from './modules/shared/components/header/header.compone
 import {HeaderButtonComponent} from './modules/shared/components/header/header-button/header-button.component';
 import {HeaderInputComponent} from './modules/shared/components/header/header-input/header-input.component';
 import {HeaderTextComponent} from './modules/shared/components/header/header-text/header-text.component';
+import {SidebarComponent} from './modules/shared/components/sidebar/sidebar.component';
+import {SidebarAccordeonComponent} from './modules/shared/components/sidebar/sidebar-accordeon/sidebar-accordeon.component';
+import {SidebarAccordeonItemComponent} from './modules/shared/components/sidebar/sidebar-accordeon/sidebar-accordeon-item/sidebar-accordeon-item.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,20 @@ import {HeaderTextComponent} from './modules/shared/components/header/header-tex
   ],
   providers: [UuidService],
   bootstrap: [AppComponent],
-  entryComponents: [ContainerComponent, TextComponent, ErrorComponent, FormInputComponent, ContainersListComponent, HeaderComponent,
-  HeaderButtonComponent, HeaderInputComponent, HeaderTextComponent]
+  entryComponents: [
+    ContainerComponent,
+    TextComponent,
+    ErrorComponent,
+    FormInputComponent,
+    ContainersListComponent,
+    HeaderComponent,
+    HeaderButtonComponent,
+    HeaderInputComponent,
+    HeaderTextComponent,
+    SidebarComponent,
+    SidebarAccordeonComponent,
+    SidebarAccordeonItemComponent
+  ]
 })
-export class AppModule { }
+export class AppModule {
+}

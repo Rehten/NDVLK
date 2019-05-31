@@ -14,6 +14,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeaderTextComponent } from './components/header/header-text/header-text.component';
 import { HeaderInputComponent } from './components/header/header-input/header-input.component';
 import { HeaderButtonComponent } from './components/header/header-button/header-button.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarAccordeonComponent } from './components/sidebar/sidebar-accordeon/sidebar-accordeon.component';
+import { SidebarAccordeonItemComponent } from './components/sidebar/sidebar-accordeon/sidebar-accordeon-item/sidebar-accordeon-item.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { HeaderButtonComponent } from './components/header/header-button/header-
     HeaderComponent,
     HeaderTextComponent,
     HeaderInputComponent,
-    HeaderButtonComponent
+    HeaderButtonComponent,
+    SidebarComponent,
+    SidebarAccordeonComponent,
+    SidebarAccordeonItemComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +56,10 @@ import { HeaderButtonComponent } from './components/header/header-button/header-
     HeaderComponent,
     HeaderTextComponent,
     HeaderInputComponent,
-    HeaderButtonComponent
+    HeaderButtonComponent,
+    SidebarComponent,
+    SidebarAccordeonComponent,
+    SidebarAccordeonItemComponent
   ]
 })
 export class SharedModule { }

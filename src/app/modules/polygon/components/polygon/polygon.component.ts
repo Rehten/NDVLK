@@ -28,7 +28,6 @@ import {HeaderInputComponent} from '../../../shared/components/header/header-inp
 import {HeaderInputComplex} from '../../../shared/components/header/header-input/header-input.complex';
 import {ContainersListComplex} from '../../../shared/components/containers-list/containers-list.complex';
 import {ContainersListComponent} from '../../../shared/components/containers-list/containers-list.component';
-import {VirtualComplex} from '../../../../types/components/virtual.complex';
 import {AppPostAction} from '../../../../redux/actions/update.action';
 import {VirtualPointerComplex} from '../../../../types/components/virtual-pointer.complex';
 import {FormInputComponent} from '../../../shared/components/form-input/form-input.component';
@@ -78,19 +77,19 @@ export class PolygonComponent implements OnInit {
   generateMeta(): VirtualPointerComplex {
     switch (this.$create) {
       case 'ndv-text':
-        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new TextComplex(TextComponent, new TextMetadata(this.$text))));
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new TextComplex(TextComponent, new TextMetadata(this.$text)), this.$pointer));
       case 'ndv-error':
-        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new ErrorComplex(ErrorComponent, new ErrorMetadata(this.$text))));
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new ErrorComplex(ErrorComponent, new ErrorMetadata(this.$text)), this.$pointer));
       case 'ndv-form-input':
-        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new FormInputComplex(FormInputComponent, new FormInputMetadata(this.$text))));
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new FormInputComplex(FormInputComponent, new FormInputMetadata(this.$text)), this.$pointer));
       case 'ndv-containers-list':
         return new ContainersListComplex(ContainersListComponent, new ContainersListMetadata([], this.$pointer, [], this.$prev));
       case 'ndv-header':
         return new HeaderComplex(HeaderComponent, new HeaderMetadata([], this.$pointer, [], this.$prev));
       case 'ndv-header-button':
-        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new HeaderButtonComplex(HeaderButtonComponent, new HeaderButtonMetadata(this.$text, this.$color))));
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new HeaderButtonComplex(HeaderButtonComponent, new HeaderButtonMetadata(this.$text, this.$color)), this.$pointer));
       case 'ndv-header-input':
-        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new HeaderInputComplex(HeaderInputComponent, new HeaderInputMetadata(this.$text, this.$color))));
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new HeaderInputComplex(HeaderInputComponent, new HeaderInputMetadata(this.$text, this.$color)), this.$pointer));
       default:
         break;
     }
