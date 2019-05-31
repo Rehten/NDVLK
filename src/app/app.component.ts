@@ -19,6 +19,7 @@ import {SidebarComponent} from './modules/shared/components/sidebar/sidebar.comp
 import {SidebarAccordeonComponent} from './modules/shared/components/sidebar/sidebar-accordeon/sidebar-accordeon.component';
 import {SidebarAccordeonItemComponent} from './modules/shared/components/sidebar/sidebar-accordeon/sidebar-accordeon-item/sidebar-accordeon-item.component';
 import {FormSelectComponent} from './modules/shared/components/form-select/form-select.component';
+import {CommonTableComponent} from './modules/shared/components/common-table/common-table.component';
 
 @Component({
   selector: 'ndv-root',
@@ -38,7 +39,8 @@ export class AppComponent {
     SidebarComponent,
     SidebarAccordeonComponent,
     SidebarAccordeonItemComponent,
-    FormSelectComponent
+    FormSelectComponent,
+    CommonTableComponent
   ];
 
   constructor(

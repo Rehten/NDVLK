@@ -1,0 +1,12 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th *ngFor="let header of metadata.headers" scope="col">{{header}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of metadata.rows">
+    <td *ngFor="let content of row">{{content}}</td>
+  </tr>
+  </tbody>
+</table>

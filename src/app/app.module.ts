@@ -22,6 +22,7 @@ import {SidebarComponent} from './modules/shared/components/sidebar/sidebar.comp
 import {SidebarAccordeonComponent} from './modules/shared/components/sidebar/sidebar-accordeon/sidebar-accordeon.component';
 import {SidebarAccordeonItemComponent} from './modules/shared/components/sidebar/sidebar-accordeon/sidebar-accordeon-item/sidebar-accordeon-item.component';
 import {FormSelectComponent} from './modules/shared/components/form-select/form-select.component';
+import {CommonTableComponent} from './modules/shared/components/common-table/common-table.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {FormSelectComponent} from './modules/shared/components/form-select/form-
     HeaderTextComponent,
     SidebarComponent,
     SidebarAccordeonComponent,
-    SidebarAccordeonItemComponent
+    SidebarAccordeonItemComponent,
+    CommonTableComponent
   ]
 })
 export class AppModule {

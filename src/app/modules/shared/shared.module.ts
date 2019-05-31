@@ -18,6 +18,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarAccordeonComponent } from './components/sidebar/sidebar-accordeon/sidebar-accordeon.component';
 import { SidebarAccordeonItemComponent } from './components/sidebar/sidebar-accordeon/sidebar-accordeon-item/sidebar-accordeon-item.component';
 import { FormSelectComponent } from './components/form-select/form-select.component';
+import { CommonTableComponent } from './components/common-table/common-table.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FormSelectComponent } from './components/form-select/form-select.compon
     SidebarComponent,
     SidebarAccordeonComponent,
     SidebarAccordeonItemComponent,
-    FormSelectComponent
+    FormSelectComponent,
+    CommonTableComponent
   ],
   imports: [
     CommonModule,
@@ -54,7 +56,8 @@ import { FormSelectComponent } from './components/form-select/form-select.compon
     SidebarComponent,
     SidebarAccordeonComponent,
     SidebarAccordeonItemComponent,
-    FormSelectComponent
+    FormSelectComponent,
+    CommonTableComponent
   ],
   exports: [
     ContainerComponent,
@@ -69,7 +72,8 @@ import { FormSelectComponent } from './components/form-select/form-select.compon
     SidebarComponent,
     SidebarAccordeonComponent,
     SidebarAccordeonItemComponent,
-    FormSelectComponent
+    FormSelectComponent,
+    CommonTableComponent
   ]
 })
 export class SharedModule { }

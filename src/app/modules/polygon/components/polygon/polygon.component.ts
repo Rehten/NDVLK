@@ -46,6 +46,9 @@ import {SidebarComplex} from '../../../shared/components/sidebar/sidebar.complex
 import {FormSelectComplex} from '../../../shared/components/form-select/form-select.complex';
 import {FormSelectComponent} from '../../../shared/components/form-select/form-select.component';
 import {FormSelectMetadata} from '../../../shared/components/form-select/form-select.metadata';
+import {CommonTableComplex} from '../../../shared/components/common-table/common-table.complex';
+import {CommonTableComponent} from '../../../shared/components/common-table/common-table.component';
+import {CommonTableMetadata} from '../../../shared/components/common-table/common-table.metadata';
 
 @Component({
   selector: 'ndv-polygon',
@@ -94,10 +97,15 @@ export class PolygonComponent implements OnInit {
         return new ContainerComplex(ContainerComponent, new ContainerMetadata(new TextComplex(TextComponent, new TextMetadata(this.$text)), this.$pointer));
       case 'ndv-error':
         return new ContainerComplex(ContainerComponent, new ContainerMetadata(new ErrorComplex(ErrorComponent, new ErrorMetadata(this.$text)), this.$pointer));
+      case 'ndv-common-table':
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new CommonTableComplex(CommonTableComponent, new CommonTableMetadata(this.$text.split(/ /g), [this.$color.split(/ /g), this.$color.split(/ /g), this.$color.split(/ /g)])), this.$pointer));
       case 'ndv-form-input':
         return new ContainerComplex(ContainerComponent, new ContainerMetadata(new FormInputComplex(FormInputComponent, new FormInputMetadata(this.$text)), this.$pointer));
       case 'ndv-form-select':
-        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new FormSelectComplex(FormSelectComponent, new FormSelectMetadata(this.$text, this.$text.split(/ /g).map(option => ({value: option, html: option})))), this.$pointer));
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new FormSelectComplex(FormSelectComponent, new FormSelectMetadata(this.$text, this.$text.split(/ /g).map(option => ({
+          value: option,
+          html: option
+        })))), this.$pointer));
       case 'ndv-containers-list':
         return new ContainersListComplex(ContainersListComponent, new ContainersListMetadata([], this.$pointer, [], this.$prev));
       case 'ndv-header':
