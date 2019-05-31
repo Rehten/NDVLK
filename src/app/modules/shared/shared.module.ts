@@ -45,7 +45,13 @@ import { SidebarAccordeonItemComponent } from './components/sidebar/sidebar-acco
     ErrorComponent,
     FormInputComponent,
     ContainersListComponent,
-    HeaderComponent
+    HeaderComponent,
+    HeaderTextComponent,
+    HeaderInputComponent,
+    HeaderButtonComponent,
+    SidebarComponent,
+    SidebarAccordeonComponent,
+    SidebarAccordeonItemComponent
   ],
   exports: [
     ContainerComponent,

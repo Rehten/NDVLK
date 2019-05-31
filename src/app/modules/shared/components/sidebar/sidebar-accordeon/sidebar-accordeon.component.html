@@ -1,3 +1,4 @@
-<p>
-  sidebar-accordeon works!
-</p>
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action list-group-item-dark">{{metadata.text}}</a>
+  <ndv-container *ngFor="let $complex of metadata.inner" [metadata]="$complex.metadata"></ndv-container>
+</div>

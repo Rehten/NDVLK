@@ -34,6 +34,15 @@ import {FormInputComponent} from '../../../shared/components/form-input/form-inp
 import {HeaderComplex} from '../../../shared/components/header/header.complex';
 import {HeaderComponent} from '../../../shared/components/header/header.component';
 import {FormInputComplex} from '../../../shared/components/form-input/form-input.complex';
+import {SidebarAccordeonItemComplex} from '../../../shared/components/sidebar/sidebar-accordeon/sidebar-accordeon-item/sidebar-accordeon-item.complex';
+import {SidebarAccordeonItemComponent} from '../../../shared/components/sidebar/sidebar-accordeon/sidebar-accordeon-item/sidebar-accordeon-item.component';
+import {SidebarAccordeonItemMetadata} from '../../../shared/components/sidebar/sidebar-accordeon/sidebar-accordeon-item/sidebar-accordeon-item.metadata';
+import {SidebarAccordeonComplex} from '../../../shared/components/sidebar/sidebar-accordeon/sidebar-accordeon.complex';
+import {SidebarAccordeonComponent} from '../../../shared/components/sidebar/sidebar-accordeon/sidebar-accordeon.component';
+import {SidebarAccordeonMetadata} from '../../../shared/components/sidebar/sidebar-accordeon/sidebar-accordeon.metadata';
+import {SidebarComponent} from '../../../shared/components/sidebar/sidebar.component';
+import {SidebarMetadata} from '../../../shared/components/sidebar/sidebar.metadata';
+import {SidebarComplex} from '../../../shared/components/sidebar/sidebar.complex';
 
 @Component({
   selector: 'ndv-polygon',
@@ -76,6 +85,8 @@ export class PolygonComponent implements OnInit {
 
   generateMeta(): VirtualPointerComplex {
     switch (this.$create) {
+      case 'ndv-container':
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(null, this.$pointer));
       case 'ndv-text':
         return new ContainerComplex(ContainerComponent, new ContainerMetadata(new TextComplex(TextComponent, new TextMetadata(this.$text)), this.$pointer));
       case 'ndv-error':
@@ -90,6 +101,12 @@ export class PolygonComponent implements OnInit {
         return new ContainerComplex(ContainerComponent, new ContainerMetadata(new HeaderButtonComplex(HeaderButtonComponent, new HeaderButtonMetadata(this.$text, this.$color)), this.$pointer));
       case 'ndv-header-input':
         return new ContainerComplex(ContainerComponent, new ContainerMetadata(new HeaderInputComplex(HeaderInputComponent, new HeaderInputMetadata(this.$text, this.$color)), this.$pointer));
+      case 'ndv-sidebar-accordeon-item':
+        return new ContainerComplex(ContainerComponent, new ContainerMetadata(new SidebarAccordeonItemComplex(SidebarAccordeonItemComponent, new SidebarAccordeonItemMetadata(this.$text, this.$color)), this.$pointer));
+      case 'ndv-sidebar-accordeon':
+        return new SidebarAccordeonComplex(SidebarAccordeonComponent, new SidebarAccordeonMetadata([], this.$text, this.$pointer, [], this.$prev));
+      case 'ndv-sidebar':
+        return new SidebarComplex(SidebarComponent, new SidebarMetadata([], this.$pointer, [], this.$prev));
       default:
         break;
     }
