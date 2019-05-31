@@ -21,6 +21,7 @@ import {HeaderTextComponent} from './modules/shared/components/header/header-tex
 import {SidebarComponent} from './modules/shared/components/sidebar/sidebar.component';
 import {SidebarAccordeonComponent} from './modules/shared/components/sidebar/sidebar-accordeon/sidebar-accordeon.component';
 import {SidebarAccordeonItemComponent} from './modules/shared/components/sidebar/sidebar-accordeon/sidebar-accordeon-item/sidebar-accordeon-item.component';
+import {FormSelectComponent} from './modules/shared/components/form-select/form-select.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {SidebarAccordeonItemComponent} from './modules/shared/components/sidebar
     TextComponent,
     ErrorComponent,
     FormInputComponent,
+    FormSelectComponent,
     ContainersListComponent,
     HeaderComponent,
     HeaderButtonComponent,

@@ -18,6 +18,7 @@ import {HeaderButtonComponent} from './modules/shared/components/header/header-b
 import {SidebarComponent} from './modules/shared/components/sidebar/sidebar.component';
 import {SidebarAccordeonComponent} from './modules/shared/components/sidebar/sidebar-accordeon/sidebar-accordeon.component';
 import {SidebarAccordeonItemComponent} from './modules/shared/components/sidebar/sidebar-accordeon/sidebar-accordeon-item/sidebar-accordeon-item.component';
+import {FormSelectComponent} from './modules/shared/components/form-select/form-select.component';
 
 @Component({
   selector: 'ndv-root',
@@ -36,7 +37,8 @@ export class AppComponent {
     HeaderInputComponent,
     SidebarComponent,
     SidebarAccordeonComponent,
-    SidebarAccordeonItemComponent
+    SidebarAccordeonItemComponent,
+    FormSelectComponent
   ];
 
   constructor(
