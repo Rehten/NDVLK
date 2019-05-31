@@ -7,8 +7,8 @@
   <select (change)="changeComponentType($event)" [value]="$create" name="" id="">
     <option *ngFor="let item of $componentsList" value="{{item}}">{{item}}</option>
   </select>
-  <input (keyup)="$text = $event.target.value" type="text" placeholder="$text">
-  <input (keyup)="$color = $event.target.value" type="text" placeholder="$color">
+  <input (keyup)="$text = $event.target.value" type="text" placeholder="$data1">
+  <input (keyup)="$color = $event.target.value" type="text" placeholder="$data2">
   <input (keyup)="$pointer = $event.target.value" type="text" placeholder="$pointer">
   <input (keyup)="$prev = $event.target.value" type="text" placeholder="$prev">
   <button (click)="submit()">submit</button>
